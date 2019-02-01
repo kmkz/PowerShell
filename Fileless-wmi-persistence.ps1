@@ -4,7 +4,7 @@
     Base: https://github.com/n0pe-sled/WMI-Persistence/blob/master/WMI-Persistence.ps1
     
     //todo:
-      - Add blue team evasion feature (remove-vmiobject to hide process creation, *Name randomization, etc... but later)
+      - Add blue team evasion feature (remove-wmiobject to hide process creation, *Name randomization, etc... but later)
 #>
 
 function Install-Persistence{
