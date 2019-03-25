@@ -7,11 +7,15 @@ Author: kmkz - [@kmkz_security](https://twitter.com/kmkz_security)
 
 This repository contains the PowerShell WMI based Proof of Concept for advanced lateral movement as presented at BsidesDub 2019.
 
-The main goal of this project was to demonstrate the possibilities an attacker might use to bypass detection mechanisms using many techniques in real-life condition.
-It implement random class name derivation generation mechanism, payload obfuscation and EventViewer logs removal via WMI un-subscription.
-Aditionaly, it use **WMI only** (no WinRM) and do not interact with registry keys to avoid registry monitoring based detection.
+The main goal of this project was to demonstrate the techniques an attacker might use to bypass detection mechanisms using many techniques in real-life condition.
+
+It implement random class name derivation  mechanism, payload obfuscation, in-memory execution without any call to IEX nor IWR for the stage 1 dropper and an EventViewer logs removal through WMI un-subscription method. 
+
+Additionally, it use **WMI only** (no WinRM) and do not interact with registry keys to avoid registry monitoring based detection.
 
 Of course, **feel free to reuse code parts for your own purpose in case of need to escape blue team or for simply test-it**.
+
+
 
 ## Details
 
