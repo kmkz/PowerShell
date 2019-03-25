@@ -32,8 +32,7 @@ Of course, **feel free to reuse code parts for your own purpose in case of need 
     
    **Stage 2** (executed on target):
          In-memory build stage 2 using "-File" parameter (obfuscated PowerShell with random Class Derivation).
-
-         Randomly generated class derivation and "EventViewer" logs removing for detection mechanisms/blue team evasion.
+	 Randomly generated class derivation and "EventViewer" logs removing for detection mechanisms/blue team evasion.
          Stage 1 execution is not removed from logs for demo purpose, it should be modified for a total discretion ;).
 
 
