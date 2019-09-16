@@ -89,7 +89,9 @@ AmsiScanBuffer
 
 
 ######################################################################################################################################
-#  Latest (and useful!) AMSI bypass using egghunting method (from June 2019)
+#  Latest (and useful!) AMSI bypass using egghunting method (from June 2019) 
+#  CSharp version available here: https://gist.github.com/amonsec/854a6662f9df165789c8ed2b556e9597
+#
 #  Example on how touse-it for real-life payload delivery : https://github.com/kmkz/exploit/blob/master/Full-payload-delivery-chain.ps1
 ######################################################################################################################################
 Write-Host "-- AMSI Patch"
