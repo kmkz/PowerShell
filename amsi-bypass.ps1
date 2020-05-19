@@ -3,7 +3,7 @@
 #  Last test: 19th May 2020
 #
 #
-#  Example on how touse-it for real-life payload delivery : https://github.com/kmkz/exploit/blob/master/Full-payload-delivery-chain.ps1
+#  Example on how to use-it for real-life payload delivery : https://github.com/kmkz/exploit/blob/master/Full-payload-delivery-chain.ps1
 ######################################################################################################################################
 Write-Host "-- AMSI Patch"
 Write-Host "-- Paul Laîné (@am0nsec)"
