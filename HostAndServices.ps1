@@ -5,10 +5,10 @@
 50..100 | %{
 
 # ping sweep part
-$ip = "10.3.0.$_";
+$ip = "10.0.0.$_";
 write-host "Tesing host $ip ..."
 
-$Check=$(Test-Connection -count 1 -comp 10.3.0.$_ -quiet)
+$Check=$(Test-Connection -count 1 -comp 10.0.0.$_ -quiet)
 
 
 $ErrorActionPreference = "SilentlyContinue"
